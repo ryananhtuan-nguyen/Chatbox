@@ -3,6 +3,7 @@ import EachLine from './EachLine.tsx'
 import { useState } from 'react'
 import Nav from './Nav'
 import * as customHook from '../hooks/useMessages.ts'
+import { useAuth0 } from '@auth0/auth0-react'
 function App() {
   const { data } = useMessages()
   const [currentUser, setCurrentUser] = useState('')
@@ -14,7 +15,8 @@ function App() {
       setChat('')
     }
   }
-  console.log(currentUser)
+
+  const { isAuthenticated } = useAuth0()
   return (
     <>
       <Nav setUser={setCurrentUser} />
@@ -28,14 +30,16 @@ function App() {
               </li>
             ))}
         </ul>
-        <textarea
-          placeholder="chat here"
-          value={chat}
-          rows={5}
-          cols={200}
-          onChange={(e) => setChat(e.currentTarget.value)}
-          onKeyDown={handleKeyDown}
-        />
+        {isAuthenticated && (
+          <textarea
+            placeholder="chat here"
+            value={chat}
+            rows={5}
+            cols={200}
+            onChange={(e) => setChat(e.currentTarget.value)}
+            onKeyDown={handleKeyDown}
+          />
+        )}
       </div>
     </>
   )

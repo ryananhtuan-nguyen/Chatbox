@@ -1,6 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
-
-html, 
-body {
-  font-family: 'Montserrat', sans-serif;
+* {
+  font-family: 'Avenir';
+  background-color: rgb(180, 180, 180);
 }
+.bubbleWrapper {
+	padding: 10px 10px;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-self: flex-end;
+  color: #42509b;
+  list-style-type: none;
+
+}
+.inlineContainer {
+  display: inline-flex;
+}
+.inlineContainer.own {
+  flex-direction: row-reverse;
+}
+.inlineIcon {
+  width:20px;
+  object-fit: contain;
+}
+.ownBubble {
+	min-width: 60px;
+	max-width: 700px;
+	padding: 14px 18px;
+  margin: 6px 8px;
+	background-color: #5b5377;
+	border-radius: 16px 16px 0 16px;
+	border: 1px solid #443f56;
+  list-style-type: none;
+ 
+}
+.otherBubble {
+	// min-width: 60px;
+	// max-width: 700px;
+  width: 1550px;
+  height: 50px;
+	padding: 14px 18px;
+  margin: 6px 8px;
+	background-color: #dadada;
+	border: 1px solid #54788e;
+  list-style-type: none;
+  border-radius: 1%;
+}
+.own {
+	align-self: flex-end;
+}
+.other {
+	align-self: flex-start;
+}
+span.own,
+span.other{
+  font-size: 14px;
+  color: grey;
+}
+
+
+textarea{
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top: 20px;
+  ;
+
+}
+
